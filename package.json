@@ -1,0 +1,27 @@
+{
+  "name": "pcss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "animejs": "^2.2.0",
+    "autoprefixer": "^7.2.5",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-colorguard": "^1.1.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^3.1.0",
+    "postcss-discard-duplicates": "^2.1.0",
+    "precss": "^3.1.0",
+    "sugarss": "^1.0.1"
+  },
+  "dependencies": {
+    "live-server": "^1.2.0"
+  }
+}

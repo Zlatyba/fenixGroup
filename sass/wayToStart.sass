@@ -1,0 +1,812 @@
+
+@font-face 
+    font-family: 'Gotham Pro'
+    src: url('/fonts/GothamPro.woff2') format('woff2'), url('/fonts/GothamPro.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+
+
+@font-face 
+    font-family: 'Gotham Pro'
+    src: url('/fonts/GothamPro-Bold.woff2') format('woff2'), url('/fonts/GothamPro-Bold.woff') format('woff')
+    font-weight: bold
+    font-style: normal
+
+
+@font-face 
+    font-family: 'Theano Old Style'
+    src: url('/fonts/TheanoOldStyle-Regular.woff2') format('woff2'), url('/fonts/TheanoOldStyle-Regular.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+
+@font-face 
+    font-family: 'Gotham Pro'
+    src: url('/fonts/subset-GothamPro-Italic.woff2') format('woff2'), url('/fonts/subset-GothamPro-Italic.woff') format('woff')
+    font-weight: normal
+    font-style: italic
+
+
+// COLORS
+
+$fg-orange: #e88a4c
+$fg-white: #ffffff
+$fg-black: #000000
+$fg-black-tp5: rgba(0, 0, 0, 0.5)
+$fg-black-tp12: rgba(0, 0, 0, 0.12)
+$fg-black-wtf: #303030
+$fg-deepblue: #0b2d72
+$fg-deeplue-tp7: rgba(11, 45, 114, 0.7)
+
+
+// BREAKPOINTS
+
+$small: 480px
+$medium: 960px
+$large: 1440px
+$xlarge: 1441px
+
+// TYPOGRAPHY
+
+.fg-typography--base
+    color: $fg-black
+    font-family: 'Gotham Pro'
+    font-size: 14px
+    font-weight: 400
+    font-style: normal
+    font-stretch: normal
+    line-height: normal
+    letter-spacing: normal
+    text-align: center
+
+.fg-typography--button
+    font-size: 12px
+    font-weight: 500
+    text-transform: uppercase
+    color: $fg-black-wtf
+
+.fg-typography--hero-headline
+    color: $fg-white
+    font-family: 'Gotham Pro'
+    font-size: 48px
+    font-weight: 700
+    text-transform: uppercase
+
+.fg-typography--hero-subheadline
+    font-size: 18px
+    line-height: 24px
+    color: $fg-white
+    align-self: center
+    justify-self: center
+
+// RESET ELEMENTS
+
+button 
+    padding: 0
+    border: none
+    font: inherit
+    color: inherit
+    background-color: transparent
+    cursor: pointer
+
+body
+    background-color: #e4e4e4
+    text-align: center
+    margin: 0 auto
+    width: 100vw
+    
+.grid
+    display: grid
+    grid-gap: 8px
+    grid-template-columns: repeat(5, minmax(8px, 1fr))
+    grid-template-rows: minmax(48px, 93px) minmax(256px, 730px) 1fr
+    align-content: center
+    @media screen and (max-width: $medium)
+        grid-template-rows: 64px minmax(256px, 730px) 1fr
+        grid-template-columns: minmax(8px, 1fr) repeat(10, 1fr) minmax(8px, 1fr)
+
+
+
+
+.hero
+    grid-column: 1 / 6
+    grid-row: 2
+    width: 100vw
+    background: url('/img/wayToStartImages/hero-imageNew.webp')
+    background-size: cover
+    background-position: center
+    display: grid
+    grid-template-rows: 136px auto auto 1fr
+    // grid-template-columns: repeat(6, minmax(8px, 1fr))
+    grid-template-columns: minmax(8px, auto) repeat(4, 1fr) minmax(8px, auto)
+    @media screen and (max-width: $medium)
+        grid-template-rows: repeat(8, 1fr)
+        grid-template-columns: minmax(8px, 1fr) repeat(10, 1fr) minmax(8px, 1fr)
+
+
+
+.no-webp div.hero
+    background-image: url('https://zlaty.ru/wayToStart/img/Image02.png')
+
+
+.hero--headline
+    grid-column: 2 / 6
+    grid-row: 2
+    background-color: $fg-deeplue-tp7
+    backdrop-filter: saturate(180%) blur(12px)
+    @media screen and (max-width: $medium)
+        grid-column: 3 / 11
+        grid-row: 2
+    @media screen and (max-width: $medium)
+        grid-column: 2 / 12
+        grid-row: 2
+
+
+.hero--subheadline
+    grid-column: 3 / 5
+    grid-row: 3
+    background-color: $fg-black-tp5
+    backdrop-filter: saturate(180%) blur(12px)
+    @media screen and (max-width: $medium)
+        grid-column: 4 / 10
+        grid-row: 3
+
+
+.textCont
+    padding: 24px
+
+.topBar
+    position: fixed
+    width: 100vw
+    top: 0
+    left: 0
+    display: grid
+    grid-template-columns: 2fr 1fr 2fr
+    grid-template-rows: repeat(3, 32px)
+    background-color: $fg-white
+    z-index: 10
+    @media screen and (max-width: $medium)
+        grid-template-rows: repeat(3, 24px)
+    @media screen and (max-width: $small)
+        display: none
+
+
+.topBar--nav-left
+    grid-row: 2
+    grid-column: 1
+    display: grid
+    grid-template-columns: repeat(4, auto)
+    grid-template-rows: repeat(auto-fit, 1fr)
+    background-color: none
+    align-self: center
+    justify-self: stretch
+    grid-gap: 24px
+    margin: 0 auto
+    // @media screen and (max-width: $medium)
+    //     display: grid
+         
+
+.topBar--nav-left-item
+    align-self: center
+
+.topBar--nav-logo
+    align-self: center
+    justify-self: center
+    position: relative
+    grid-row: 3
+    grid-column: 2
+
+.header__logo-image
+    @media screen and (max-width: $medium)
+        height: 128px
+
+.topBar--nav-right
+    align-self: center
+    grid-row: 2
+    grid-column: 3
+    display: grid
+    grid-template-columns: repeat(2, auto)
+    grid-template-rows: repeat(auto-fit, 1fr)
+    background-color: none
+    align-self: center
+    justify-self: stretch
+    grid-gap: 24px
+    margin: 0 auto
+    >*
+        align-self: center
+
+
+.topBar--nav-subline
+    grid-row: 3
+    grid-column: 1 / -1
+    height: 7px
+    border-top: $fg-orange 1px solid
+    align-self: end
+    // @media screen and (max-width: $medium)
+    //     height: 6px
+
+.topBar--nav-right--phoneNum
+    font-weight: bold
+
+.about
+    grid-row: 3
+    grid-column: 1 / -1
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
+    @media screen and (max-width: $medium)
+        grid-template-rows: 32px 1fr 32px
+        grid-template-columns: minmax(8px, 1fr) repeat(10, 1fr) minmax(8px, 1fr)
+
+.about--logo-huge
+    grid-column: 2 / 3
+    grid-row: 2
+
+.about--text
+    grid-column: 3 / 12
+    text-align: left
+    line-height: 20px
+    grid-row: 2
+
+.reasons
+    grid-row: 4 / 5
+    grid-column: 1 / -1
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
+    @media screen and (max-width: $medium)
+        grid-template-rows: repeat(4, 92px)
+        grid-template-columns: minmax(8px, 16px) repeat(10, 1fr) minmax(8px, 16px)
+
+.reasons--title
+    grid-column: 2 / 12
+    justify-self: start
+    align-self: center
+    padding-left: 36px
+    font-family: 'Theano Old Style'
+    font-size: 38px
+    text-transform: uppercase
+    text-align: left
+    border-left: 4px solid $fg-orange
+
+.reasons--gallery
+    grid-column: 2 / 12
+    // grid-row: 2 / 4
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-column-gap: 16px
+    >*
+        grid-row: 3 / 4
+        height: 144px
+        line-height: 20px
+        align-self: end
+        background-size: cover
+        background-position: center
+
+
+.reasons--gallery-logistics
+    grid-column: 1 / 2
+    background: url('/img/wayToStartImages/gallery-logistics.webp')
+
+
+.no-webp div.reasons--gallery-logistics
+    background: url('/img/wayToStartImages/gallery-logistics.png')
+
+
+.reasons--gallery-logistics--text
+    grid-row: 4 / 5
+
+.reasons--gallery-clock
+    grid-column: 2 / 3
+    background: url('/img/wayToStartImages/gallery-clock.webp')
+
+
+.no-webp div.reasons--gallery-clock
+    background: url('/img/wayToStartImages/gallery-clock.png')
+
+
+.reasons--gallery-clock--text
+    grid-row: 4 / 5
+
+.reasons--gallery-writer
+    grid-column: 3 / 4
+    background: url('/img/wayToStartImages/gallery-writer.webp')
+
+
+.no-webp div.reasons--gallery-writer
+    background: url('/img/wayToStartImages/gallery-writer.png')
+
+.reasons--gallery-writer--text
+    grid-row: 4 / 5
+
+
+.reasons--gallery-avia
+    grid-column: 4 / 5
+    background: url('/img/wayToStartImages/gallery-avia.webp')
+
+
+.no-webp div.reasons--gallery-avia
+    background: url('/img/wayToStartImages/gallery-avia.png')
+
+.reasons--gallery-avia--text
+    grid-row: 4 / 5
+
+// BRANDS
+
+.brands
+    grid-row: 5 / 6
+    grid-column: 1 / -1
+    background-color: rgb(47, 47, 47)
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
+    @media screen and (max-width: $medium)
+        grid-template-rows: repeat(2, 92px) 48px
+        grid-template-columns: minmax(8px, 16px) repeat(10, 1fr) minmax(8px, 16px)
+
+.brands--title
+    grid-column: 2 / 12
+    justify-self: start
+    align-self: center
+    font-family: 'Theano Old Style'
+    font-size: 38px
+    text-transform: uppercase
+    text-align: left
+    border-left: none
+    color: #ffffff
+
+.brands--gallery
+    grid-column: 2 / 12
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-rows: minmax(64px, 128px)
+    grid-column-gap: 16px
+    justify-items: center
+    align-content: center
+    >*
+        grid-row: 1 / 2
+        align-self: stretch
+        justify-self: stretch
+        background-color: $fg-white
+
+// .no-webp div.reasons--gallery-adidas
+//     grid-column: 1 / 2
+//     background: url('/img/wayToStartImages/blockSnickers.png')
+
+// .reasons--gallery-reebok
+//     grid-column: 2 / 3
+//     // background: url('/img/wayToStartImages/reebok.svg')
+
+// .reasons--gallery-puma
+//     grid-column: 3 / 4
+//     background: url('/img/wayToStartImages/blockPuma.png')
+
+// .reasons--gallery-snickers
+//     grid-column: 4 / 5
+//     // background: url('/img/wayToStartImages/gallery-logistics.webp')
+
+.contacts
+    grid-row: 6 / 8
+    grid-column: 1 / -1
+    display: grid
+    width: 100vw
+    min-height: 512px
+    @media screen and (max-width: $medium)
+        grid-template-rows: repeat(2, 1fr)
+        grid-template-columns: minmax(8px, 1fr) repeat(10, 1fr) minmax(8px, 1fr)
+        > iframe
+            grid-column: 1 / -1
+            grid-row: 1 / 3
+            z-index: -1
+
+
+.contacts--form
+    grid-row: 1 / 3
+    grid-column: 8 / 12
+    height: 80%
+    align-self: center
+    z-index: 1
+    background: $fg-white
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2)
+    display: grid
+    grid-template-columns: minmax(16px, 32px) 24px 1fr minmax(16px, 32px)
+    grid-template-rows: 56px repeat(7, 1fr)
+
+#form
+    text-align: left
+    outline: none
+    border: none
+    &:nth-child(1)
+        grid-column: 2 / 4
+        grid-row: 1 / 2
+    &:nth-child(2)
+        grid-column: 2 / 4
+        grid-row: 2 / 3
+        height: 46px
+        width: 390px
+    &:nth-child(3)
+        grid-column: 2 / 4
+        grid-row: 3 / 4
+    &:nth-child(4)
+        grid-column: 2 / 4
+        grid-row: 4 / 5
+    &:nth-child(5)
+        grid-column: 2 / 4
+        grid-row: 5 / 6
+    &:nth-child(6)
+        grid-column: 2 / 4
+        grid-row: 6 / 7
+    &:nth-child(7)
+        grid-column: 2 / 4
+        grid-row: 7 / 8
+
+.title
+    grid-column: 2 / 4
+    grid-row: 1 / 2
+    justify-self: end
+
+#contacts--form-username
+    width: calc(100% - 15px)
+    height: 32px
+    outline: none
+    border: 1px solid $fg-black-tp12
+    appearance: none
+    grid-column: 2 / 4
+    grid-row: 2 / 3
+    justify-self: start
+    padding-left: 16px
+
+#contacts--form-email
+    width: calc(100% - 15px)
+    height: 32px
+    outline: none
+    border: 1px solid $fg-black-tp12
+    appearance: none
+    padding-left: 16px
+    grid-column: 2 / 4
+    grid-row: 3 / 4
+
+
+#contacts--form-phoneNum
+    width: calc(100% - 15px)
+    height: 32px
+    outline: none
+    border: 1px solid $fg-black-tp12
+    appearance: none
+    padding-left: 16px
+    grid-column: 2 / 4
+    grid-row: 5 / 6
+
+#contacts--form-comment
+    width: calc(100% - 16px)
+    height: 128px
+    outline: none
+    border: 1px solid $fg-black-tp12
+    appearance: none
+    padding-left: 16px
+    grid-column: 2 / 4
+    grid-row: 6 / 7
+
+.contacts--form-checkbox
+    width: 16px
+    height: 16px
+    outline: none
+    border-width: 1px
+    appearance: none
+    grid-column: 2 / 4
+    grid-row: 7 / 8
+
+#contacts--form-button
+    width: calc(100% - 59px)
+    height: 42px
+    outline: none
+    background-color: $fg-orange
+    border-width: 0px
+    appearance: none
+    grid-column: 2 / 4
+    grid-row: 8 / 9
+    align-self: center
+    justify-self: center
+
+// #contacts--form-submit
+//     width: calc(100% - 59px)
+//     height: 16px
+//     outline: none
+//     border-width: 1px
+//     appearance: none
+//     grid-column: 2 / 4
+//     grid-row: 7 / 8
+
+// FOOTER
+
+.footer
+    grid-row: 8
+    display: flex
+    box-sizing: border-box
+    background: $fg-black-wtf
+    height: 56px
+    position: relative
+    width: 100vw
+    color: #fff
+
+.footer-left
+    justify-content: flex-start
+    align-items: center
+    display: flex
+    flex-grow: 1
+    flex-shrink: 1
+    padding-left: 19px
+    text-align: left
+    @media screen and (max-width: $medium)
+        padding-left: 16px
+
+.footer-right
+    justify-content: flex-end
+    align-items: center
+    display: flex
+    flex-grow: 1
+    flex-shrink: 1
+    padding-right: 27px
+    text-align: right
+    @media screen and (max-width: $medium)
+        padding-right: 16px
+
+button
+    display: inline-block
+    text-align: center
+    text-decoration: none
+    margin: 2px 0
+    border: solid 1px transparent
+    border-radius: 24px
+    padding: 0.5em 1em
+    color: $fg-white
+    background-color: $fg-orange
+    outline: none
+    appearance: none
+
+input[type="button"]:focus
+    outline: none
+
+.fg-button
+    border-style: solid
+    padding: 0px 24px
+    line-height: 32px
+    text-transform: uppercase
+    border-radius: 24px
+    background-color: transparent
+    justify-content: center
+    align-items: center
+    border: 1px solid rgb(112, 112, 112)
+
+.fg-link, a
+    text-decoration: none
+    outline: none
+    background: none
+    position: relative
+    color: $fg-black
+    z-index: 1
+    backface-visibility: hidden
+    transition: border-color 0.4s, color 0.4s
+    &:focus
+        outline: none
+    &:hover
+        color: $fg-orange
+        border-color: $fg-orange
+    &::before
+        content: ""
+        background: none
+        z-index: -1
+        opacity: 0
+        -webkit-transform: scale3d(0.7, 1, 1)
+        transform: scale3d(0.7, 1, 1)
+        -webkit-transition: -webkit-transform 0.4s, opacity 0.4s
+        transition: transform 0.4s, opacity 0.4s
+        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+
+
+
+[type="checkbox"]
+    outline: 0px solid transparent
+    &:checked, &:not(:checked)
+        outline: 0px solid transparent
+        position: absolute
+        left: -9999px
+        background-color: transparent
+    &:checked + label, &:not(:checked) + label
+        position: relative
+        padding-left: 28px
+        cursor: pointer
+        line-height: 20px
+        display: inline-block
+        color: #666
+        outline: 0px solid transparent
+    &:checked + label:before, &:not(:checked) + label:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        width: 18px
+        height: 18px
+        border: 1px solid #a6a6a6
+        color: inherit
+        background-color: transparent
+        cursor: pointer
+        outline: 0px solid transparent
+    &:checked + label:after
+        content: ''
+        outline: 0px solid transparent
+        width: 8px
+        height: 8px
+        color: inherit
+        background-color: transparent
+        cursor: pointer
+        background-color: rgb(236, 129, 33)
+        position: absolute
+        top: 6px
+        left: 6px
+        -webkit-transition: all 0.2s ease
+        -moz-transition: all 0.2s ease
+        -o-transition: all 0.2s ease
+        transition: all 0.2s ease
+    &:not(:checked) + label:after
+        content: ''
+        color: inherit
+        background-color: transparent
+        cursor: pointer
+        outline: 0px solid transparent
+        width: 8px
+        height: 8px
+        background: rgb(236, 129, 33)
+        position: absolute
+        top: 8px
+        left: 8px
+        -webkit-transition: all 0.2s ease
+        -moz-transition: all 0.2s ease
+        -o-transition: all 0.2s ease
+        transition: all 0.2s ease
+        opacity: 0
+        -webkit-transform: scale(0)
+        -moz-transform: scale(0)
+        -o-transform: scale(0)
+        -ms-transform: scale(0)
+        transform: scale(0)
+    &:checked + label:after
+        opacity: 1
+        outline: 0px solid transparent
+        -webkit-transform: scale(1)
+        -moz-transform: scale(1)
+        -o-transform: scale(1)
+        -ms-transform: scale(1)
+        transform: scale(1)
+    &:disabled
+        &:checked + label:before, &:not(:checked) + label:before
+        border-color: #ccc
+        background-color: none
+        outline: 0px solid transparent
+    &:checked + label:after
+        background: #ec8121
+        outline: 0px solid transparent
+
+input[type="checkbox"]:focus
+    outline: none
+
+input[type="text"]:focus
+    outline: none
+
+
+// FLUID TYPOGRAPHY
+
+@function strip-unit($number)
+	@if type-of($number) == "number" and not unitless($number)
+		@return $number / ($number * 0 + 1)
+	@return $number
+
+@function calcFluidFontSize($f-min, $f-max, $w-min, $w-max, $units: px)
+	$f-min: strip-unit($f-min)
+	$f-max: strip-unit($f-max)
+	$w-min: strip-unit($w-min)
+	$w-max: strip-unit($w-max)
+	$k: ($f-max - $f-min) / ($w-max - $w-min)
+	$b: $f-min - $k * $w-min
+	$b: $b + $units
+	@return calc( #{$k} * 100vw + #{$b} )
+
+=fluidFontSize($f-min, $f-max, $w-min, $w-max, $fallback: false)
+	font-size: $f-min
+	@media (min-width: $w-min)
+		@if $fallback
+			font-size: $fallback
+		font-size: calcFluidFontSize($f-min, $f-max, $w-min, $w-max, px)
+	@media (min-width: $w-max)
+		font-size: $f-max
+
+.fg-typography--headline
+	+fluidFontSize(24px, 50px, 480px, 1440px, 36px)
+
+.fg-typography--subHeadline
+	+fluidFontSize(14px, 30px, 480px, 1440px, 22px)
+
+.fg-typography--body
+	+fluidFontSize(11px, 14px, 480px, 1440px, 22px)
+
+.fg-typography--BodyTwo
+	+fluidFontSize(11px, 14px, 480px, 1440px, 12px)
+
+.fg-typography--button
+	+fluidFontSize(13px, 16px, 480px, 1440px, 15px)
+
+.PERENOS
+	+fluidFontSize(24px, 48px, 480px, 1440px, 15px)
+
+.fg-typography--headline,
+.fg-typography--subHeadline,
+.fg-typography--body,
+.fg-typography--BodyTwo,
+.fg-typography--button,
+    font-family: 'Gotham Pro'
+
+
+.navbar
+    position: fixed
+    width: 100vw
+    top: 0
+    left: 0
+    display: grid
+    grid-template-columns: 64px 1fr 1fr 1fr
+    grid-template-rows: 64px
+    align-items: center
+    background-color: $fg-white
+    z-index: 10
+
+
+.topBar--nav-left
+    grid-row: 2
+    grid-column: 1
+    display: grid
+    grid-template-columns: repeat(4, auto)
+    grid-template-rows: repeat(auto-fit, 1fr)
+    background-color: none
+    align-self: center
+    justify-self: stretch
+    grid-gap: 24px
+    margin: 0 auto
+    // @media screen and (max-width: $medium)
+    //     display: grid
+         
+
+.topBar--nav-left-item
+    align-self: center
+
+.topBar--nav-logo
+    align-self: center
+    justify-self: center
+    position: relative
+    grid-row: 3
+    grid-column: 2
+
+.header__logo-image
+    @media screen and (max-width: $medium)
+        height: 128px
+
+.topBar--nav-right
+    align-self: center
+    grid-row: 2
+    grid-column: 3
+    display: grid
+    grid-template-columns: repeat(2, auto)
+    grid-template-rows: repeat(auto-fit, 1fr)
+    background-color: none
+    align-self: center
+    justify-self: stretch
+    grid-gap: 24px
+    margin: 0 auto
+    >*
+        align-self: center
+
+
+.topBar--nav-subline
+    grid-row: 3
+    grid-column: 1 / -1
+    height: 7px
+    border-top: $fg-orange 1px solid
+    align-self: end
+
+.item
+    align-self: center
